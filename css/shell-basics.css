@@ -7,7 +7,7 @@ div .split-wrapper .split-column {
     box-sizing: border-box;
     /* Remove following lines for linux only */
     float: left;
-    width: 50%;
+    width: 49%;
 }
 
 div .vertical-bar-left {
