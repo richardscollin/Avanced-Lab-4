@@ -10,8 +10,12 @@ div .split-wrapper .split-column {
     width: 50%;
 }
 
-div .vertical-bar {
+div .vertical-bar-left {
     border-left: 4px solid #eee;
+}
+
+div .vertical-bar-right {
+    border-right: 4px solid #eee;
 }
 
 .reveal .center {
@@ -29,3 +33,16 @@ div .vertical-bar {
     /* display: none; */
 }
 
+.reveal li.fix-bullet {
+    white-space: nowrap;
+    margin-left: 140px;
+}
+
+.reveal #tree-text{
+    text-align: left;
+    font-size: 0.7em
+}
+
+.reveal code.small-text {
+    font-size: 0.8em
+}
