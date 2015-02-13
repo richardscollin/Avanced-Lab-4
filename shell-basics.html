@@ -68,7 +68,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
                 <li class="fragment">Powerful</li>
                 <li class="fragment">Fun</li>
                 <li class="fragment">Configurable</li>
-                <li class="fragment">Employers like Linux experience</li>
+                <li class="fragment">Employers like Linux experience (shell)</li>
                 <li class="fragment">Required for this class</li>
             </ul>
         </section>
@@ -113,7 +113,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
             </section>
             <section>
                 <h2>Linux Filesystem Hierarchy System</h2>
-                <pre><code id="tree-text">
+                <pre><code class="code-blob">
 /
 |-- bin         #system binaries
 |-- boot        #stuff for booting
@@ -135,6 +135,38 @@ if( window.location.search.match( /print-pdf/gi ) ) {
                 </code></pre>
                 <p>You can read more about the FHS standards at <a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">wikipedia</a>.</p>
             </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>What's the difference between:</h2>
+            <ul>
+              <li>Terminal</li>
+              <li>Shell</li>
+            </ul>
+          </section>
+          <section>
+            <h2>List of Common Shells</h2>
+            <div class="split-wrapper">
+              <div class="split-column">
+                <h3>Posix Shells</h3>
+                <ul>
+                  <li>Borne Shell (sh) - 1977</li>
+                  <li>Bash - 1989</li>
+                  <li>Zsh - 1990</li>
+                </ul>
+              </div>
+
+              <div class="split-column">
+                <h3>Windows Shells</h3>
+                <ul>
+                  <li>COMMAND.COM - 1981</li>
+                  <li>cmd.exe - 1993</li>
+                  <li>PowerShell - 2006</li>
+                </ul>
+              </div>
+            </div>
+          </section>
         </section>
 
         <section>
@@ -180,12 +212,16 @@ man command
             <h2>Time to Learn Some Basic Commands!</h2>
           </section>
           <section>
-            <h2>Be Careful</h2>
-            <p>The following commands can overwrite your files if used improperly.</p>
+            <h2>Create an Empty File</h2>
+            <code>touch file</code>
           </section>
           <section>
               <h2>Printing Files (to the screen)</h2>
               <code>cat file</code>
+          </section>
+          <section>
+            <h2>Be Careful</h2>
+            <p>The following commands can overwrite your files if used improperly.</p>
           </section>
           <section>
               <h2>Copying Files</h2>
@@ -198,55 +234,65 @@ man command
           <section>
             <h2>Deleting Files</h2>
             <code>rm file</code>
+            <h3>Deleting Directories</h3>
+            <strong>Be careful there is no recycle bin!</strong><br>
+            <code>rm -rf directory</code>
           </section>
           <section>
             <h2>Text Editors</h2>
-            <code>gedit file.txt</code>
-            <code>nano file.txt</code>
-            <code>vim file.txt</code>
+            <pre><code class="hljs bash">gedit file.txt</code></pre>
+            <br>
+            <p>If you want to learn vim run <code>vimtutor</code> for an intro.</p>
           </section>
           <section>
             <h2>Symbolic Links (Shortcuts)</h2>
-            <div class="split-wrapper">
-              <div class="split-column">
-                <h3>Unix/Linux</h3>
-                <code>ln -s target linkname</code>
-              </div>
-              <div class="vertical-bar windows split-column">
-                <h3>Windows</h3>
-                <code>mklink /?</code>
-              </div>
-            </div>
+            <code>ln -s target linkname</code>
+          </section>
+          <section>
+            <h2>File Permissions</h2>
+            <p>Making a file executable</p>
+            <pre class="hljs bash"><code>chmod +x program</code></pre>
           </section>
         </section>
         <section>
-          <h2>Caution</h2>
-          <p>Most of the information that follows is for Posix shells.
-          If you are using Windows I recommend using mingw32 or cygwin.</p>
-        </section>
-        <section>
-          <section>
-            <h2>Pipes and Redirection</h2>
-            <p>Pipes are a way you can use the output of one command as the input for another.</p>
-          </section>
-          <section>
-            <p>Let's say we want a file that lists all of the programs we can run from our shell.</p>
-          </section>
-          <section>
-            <p>We are going to use the following programs:</p>
-            <ul>
-              <li>echo</li>
-              <li>tr</li>
-              <li>xargs</li>
-              <li>ls</li>
-              <li>sort</li>
-              <li>uniq</li>
-            </ul>
-          </section>
-          <section>
-            <h2>Final Program</h2>
-            <pre><code class="fragment hljs bash">echo $PATH | tr ':' '\n' | xargs -n 1 ls -1 | sort | uniq > file</code></pre>
-          </section>
+            <section>
+                <h2>Useful Commands for this class</h2>
+            </section>
+            <section>
+                <h2>apt-get</h2>
+                <p>You will use apt-get to install software on Ubuntu.<br>Other Linux distros might use something else.</p>
+                <div class="fragment add-padding">
+                    <p>Searching packages</p>
+                    <pre><code class="hljs bash">apt-cache search program</code></pre>
+                </div>
+                <div class="fragment add-padding">
+                    <p>Installing a program</p>
+                    <pre><code class="hljs bash">sudo apt-get install program</code></pre>
+                </div>
+                <div class="fragment add-padding">
+                    <p>Update package list</p>
+                    <pre><code class="hljs bash">sudo apt-get update</code></pre>
+                </div>
+                <div class="fragment add-padding">
+                    <p>Update all packages</p>
+                    <pre><code class="hljs bash">sudo apt-get upgrade</code></pre>
+                </div>
+            </section>
+            <section>
+                <h2>tar</h2>
+                <p>Tar is program that compresses files into a .tar.gz.
+                We will often give you tar.gz files and ask you to turn them in as well.</p>
+                <div class="fragment add-padding">
+                    <p>Compress</p>
+                    <pre><code class="hljs bash">tar czvf archive.tar.gz list of files</code></pre><br>
+                    <p class="fragment">Compress Ze Various Files</p>
+                </div>
+                <div class="fragment add-padding">
+                    <p>Extract</p>
+                    <pre><code class="hljs bash">tar xzvf archive.tar.gz</code></pre><br>
+                    <p class="fragment">Extract Ze Various Files</p>
+                </div>
+            </section>
         </section>
         <section>
           <section>
@@ -261,7 +307,7 @@ man command
           <section>
             <h2>Background Processes</h2>
             <p>This is more fun if you follow along on your own shell.</p>
-            <pre><code class="hljs bash">
+            <pre><code class="code-blob hljs bash">
 user@~$ sleep 2 # wait 2 seconds
 user@~$ sleep 200 &amp; # runs the program in the background
 user@~$ sleep 100 # who wants to wait that long (presses ctrl-z)
@@ -298,12 +344,13 @@ rm -i *.o
           </section>
           <section>
             <p>Echo.java</p>
-            <pre><code class="hljs java">
+            <pre><code class="code-blob hljs java">
 public class Echo {
     public static void main(String[] argv) {
         System.out.println(java.util.Arrays.toString(argv));
     }
-}</code></pre>
+}</code></pre><br>
+            <p>To run and compile:</p>
             <pre><code class="hljs bash">
 javac Echo.java
 java Echo *
@@ -314,13 +361,53 @@ java Echo *
         </section>
 
         <section>
-          <h2>Advanced Commands</h2>
+          <section>
+            <h2>Pipes and Redirection</h2>
+            <p>Pipes are a way you can use the output of one command as the input for another.</p>
+            <p>This is one of the reasons people love the command line.</p>
+          </section>
+          <section>
+              <h2>Special Characters</h2>
+              <ul>
+                  <li>&gt; Send stdout to a file.</li>
+                  <li>&gt;&gt; Append stdout to a file.</li>
+                  <li>| Send stdout of a program to stdin of another.</li>
+              </ul>
+          </section>
+          <section>
+              <h2>Filters</h2>
+              <p><em>Filters</em> are programs that process text.</p><br>
+              <p>List of common filters:</p>
+              <ul>
+                  <li>tr</li>
+                  <li>sed</li>
+                  <li>grep</li>
+              </ul>
+          </section>
+          <section>
+              <h2>Example Pipe</h2>
+
+              <pre><code class="hljs bash">
+fortune | cowsay
+              </code></pre>
+              <p>You can stick this at the bottom of your ~/.bashrc</p>
+          </section>
+        </section>
+
+        <section>
+            <h2>Important Files and Folders</h2>
+            <ul>
+                <li>Hidden Files start with a .</li>
+                <li>~ (home directory)</li>
+                <li>~/.bashrc (bash config file)</li>
+                <li>/dev/null (null device)</li>
+            </ul>
         </section>
 
         <section>
           <section>
             <h2>Obsure Bash Stuff</h2>
-            <p>Bash features you might not know about.</p>
+            <p>Bash features you don't need know about.</p>
           </section>
 
           <section>
@@ -380,6 +467,10 @@ hello
             When you save and quit the command will be executed.</p>
           </section>
 
+        </section>
+        <section>
+          <h2>Fun Linux Stuff</h2>
+          <a href="https://github.com/lugatgt/scripts">LUG Scripts</a>
         </section>
 
         <section>

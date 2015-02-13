@@ -38,9 +38,13 @@ div .vertical-bar-right {
     margin-left: 140px;
 }
 
-.reveal #tree-text{
+.reveal .code-blob {
     text-align: left;
     font-size: 0.7em
+}
+
+.reveal div.add-padding {
+    padding-top: 20px;
 }
 
 .reveal code.small-text {
